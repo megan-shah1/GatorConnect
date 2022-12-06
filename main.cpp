@@ -192,22 +192,26 @@ int main() {
     }
 
 
-    //print menu
+    //print intro menu
     cout << "***********************************" << endl;
     cout << "*          GATOR CONNECT          *" << endl;
     cout << "***********************************" << endl;
     cout << "GatorConnect is designed to help you find mutual friends to expand your social circle and to find out how other students are connected with each other." << endl;
     cout << endl;
+    //ask user for number of operations to perform
     cout << "Input how many operations you wish to perform: " << endl;
     getline(cin, numberOfInputs);
     int temp = stoi(numberOfInputs);
     while (temp != 0) {
+
+        //print menu and ask for user input temp number of times
         cout << "Menu:" << endl;
         cout << "1) Find out how 2 gators are connected using Breadth First Search" << endl;
         cout << "2) Find out how 2 gators are connected using Depth First Search" << endl;
         cout << "3) Find how many friends a gator has" << endl;
         cout << "4) Exit program" << endl;
         cout << endl;
+
         //take in user input for menu options
         cout << "Enter a menu option to proceed:" << endl;
         string menuOption;
@@ -246,7 +250,8 @@ int main() {
             temp --;
         }
 
-        // Enter a gator and find how many friends they have, prints size of vector associated with each key
+        // if 3 is entered, input a gator and find how many friends they have
+        // prints size of vector associated with each key
         else if (menuOption == "3") {
             string tempName;
             cout << "Enter a gator to find how many friends they have: " << endl;
