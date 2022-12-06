@@ -19,7 +19,7 @@ using namespace std;
 using namespace std::chrono;
 
 //depth first search through an inputted adjacency list given two people
-int DFS(map<string, vector<string>> mapPassed, string person1, string person2)
+void DFS(map<string, vector<string>> mapPassed, string person1, string person2)
 {
     //starts the clock at the beginnning of the function
     auto start = std::chrono::high_resolution_clock::now();
@@ -57,7 +57,7 @@ int DFS(map<string, vector<string>> mapPassed, string person1, string person2)
                 //stops printing/traversing
                 if (myFriend == person2)
                 {
-                    return 0;
+                    break;
                 }
                 //otherwise continue inserting people into the set and stack
                 visited.insert(myFriend);
@@ -76,9 +76,9 @@ int DFS(map<string, vector<string>> mapPassed, string person1, string person2)
 
     //clock is stopped, duration is calculated and printed
     auto stop = std::chrono::high_resolution_clock::now();
-    auto durationDepth = duration_cast<std::chrono::microseconds>(stop - start);
+    auto duration = duration_cast<std::chrono::microseconds>(stop - start);
 
-    cout << "Time taken for Depth First Search to execute in microseconds: " << durationDepth.count() << endl;
+    cout << "Time taken for Depth First Search to execute in microseconds: " << duration.count() << endl;
 }
 
 //performs a breadth first search using an inputted adjacency list given two people
@@ -214,7 +214,7 @@ int main() {
         getline(cin, menuOption);
         cout << endl;
 
-        // if 1 is entered, perform BFS vs DFS and output execution time
+        // if 1 is entered, perform BFS between two people and output execution time
         if (menuOption == "1") {
             cout << "Please enter Person 1's name: " << endl;
             string person1;
@@ -230,6 +230,7 @@ int main() {
             temp --;
         }
 
+        //if two is entered, perform DFS between two people and output execution time
         else if (menuOption == "2") {
             cout << "Please enter Person 1's name: " << endl;
             string person1;
@@ -245,13 +246,19 @@ int main() {
             temp --;
         }
 
-            // Enter a gator and find how many friends they have
+        // Enter a gator and find how many friends they have, prints size of vector associated with each key
         else if (menuOption == "3") {
             string tempName;
             cout << "Enter a gator to find how many friends they have: " << endl;
             getline(cin, tempName);
-            cout << mapOfFriends[tempName].size() << endl;
+            cout << tempName << " has " << mapOfFriends[tempName].size() << " friends!" << endl;
+            cout << endl;
             temp --;
+        }
+
+        // if 4 is entered, exit out of the program
+        else if (menuOption == "4") {
+            exit(0);
         }
     }
 
