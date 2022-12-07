@@ -174,7 +174,7 @@ int main() {
 
 
     //reads in sample data file with over 100,100 nodes
-    fstream file("project 3 small graph csv.csv");
+    fstream file("friends.csv");
     if (file.is_open()) {
         string line;
         while (getline(file, line))
