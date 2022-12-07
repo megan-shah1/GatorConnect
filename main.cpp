@@ -19,6 +19,7 @@ using namespace std;
 using namespace std::chrono;
 
 //depth first search through an inputted adjacency list given two people
+//Cited using Professor Kapoor's Graph Traversal DFS slides
 void DFS(map<string, vector<string>> mapPassed, string person1, string person2)
 {
     //starts the clock at the beginnning of the function
@@ -82,6 +83,7 @@ void DFS(map<string, vector<string>> mapPassed, string person1, string person2)
 }
 
 //performs a breadth first search using an inputted adjacency list given two people
+//Cited using Professor Kapoor's Graph Traversal BFS slides
 void BFS (map <string, vector<string>> mapPassed, string person1Passed, string person2Passed) {
     //starts the clock at the beginnning of the function
     auto start = std::chrono::high_resolution_clock::now();
